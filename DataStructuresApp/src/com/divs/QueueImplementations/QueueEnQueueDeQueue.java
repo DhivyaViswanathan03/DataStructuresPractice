@@ -1,18 +1,17 @@
-package QueueImplementations;
+package com.divs.QueueImplementations;
 
 import java.util.Scanner;
 
-public class CircularQueueOperations {
+public class QueueEnQueueDeQueue {
 	static int n;
 	static int front=-1;
 	static int rear=-1;
-	static int[] cQueue;
+	static int[] queue;
 	public static void main(String[] args) {
 		Scanner input=new Scanner(System.in);
 		System.out.println("Enter queue size:");
 		n=input.nextInt();
-		cQueue=new int[n];
-		System.out.println("Circular Queue Operations....");
+		queue=new int[n];
 		while(true) {
 			System.out.println("1.Enqueue");
 			System.out.println("2.Dequeue");
@@ -46,47 +45,50 @@ public class CircularQueueOperations {
 
 	}
 	private static void enqueue(int data) {
-		if(front==-1 && rear==-1) {
-			front=rear=0;
-			cQueue[rear]=data;
-		}else if((rear+1)%n==front) {
-			System.out.println("Circular queue is full");
-		}else {
-			rear=(rear+1)%n;
-			cQueue[rear]=data;
+		try {
+			if(rear==n-1) {
+				System.out.println("Queue is full");
+			}else if(front==-1 && rear==-1) {
+				front=rear=0;
+				queue[rear]=data;
+			}
+			else {
+				rear++;
+				queue[rear]=data;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 	
 	private static void dequeue() {
 		if(front==-1 && rear==-1) {
-			System.out.println("Circular queue is empty");
+			System.out.println("Queue is empty");
 		}else if(front==rear) {
+			System.out.println("Dequeue ele is:"+queue[front]);
 			front=rear=-1;
 		}else {
-			System.out.println(cQueue[front]);
-			front=(front+1)%n;
-			
+			System.out.println("Dequeue ele is:"+queue[front]);
+			front++;
 		}
 	}
 
 	private static void peek() {
 		if(front==-1 && rear==-1) {
-			System.out.println("Circular queue is empty");
+			System.out.println("Queue is Empty");
 		}else {
-			System.out.println(cQueue[front]);
+			System.out.println("Front ele is :"+queue[front]);
 		}
 	}
 
 	private static void display() {
-		int i=front;
+		int i;
 		if(front==-1 && rear==-1) {
-			System.out.println("Circular queue is empty");
+			System.out.println("Queue is empty");
 		}else {
-			while(i!=rear) {
-				System.out.println(cQueue[i]);
-				i=(i+1)%n;
+			for(i=front;i<rear+1;i++ ) {
+				System.out.println("Data is:"+queue[i]);
 			}
-			System.out.println(cQueue[i]);
 		}
 	}
 

@@ -1,4 +1,4 @@
-package LinkedListImplementations;
+package com.divs.LinkedListImplementations;
 
 import java.util.Scanner;
 

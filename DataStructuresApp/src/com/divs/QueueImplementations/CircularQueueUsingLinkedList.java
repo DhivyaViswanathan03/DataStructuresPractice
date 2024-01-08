@@ -1,4 +1,4 @@
-package QueueImplementations;
+package com.divs.QueueImplementations;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package StackImplementations;
+package com.divs.StackImplementations;
 
 import java.util.Scanner;
 
