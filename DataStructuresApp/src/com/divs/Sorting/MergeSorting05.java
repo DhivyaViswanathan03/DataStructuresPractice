@@ -1,4 +1,4 @@
-package com.divs;
+package com.divs.Sorting;
 
 public class MergeSorting05 {
 
